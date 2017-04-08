@@ -20,9 +20,9 @@ tput setaf 54
  echo "                  ▓▌                                                     "
  echo "                  ▓▌                                                     "
  tput sgr0
- tput bold
+ tput smul
  echo
  echo "Setting up OpenAI Gym!"
  echo "Detecting dependencies"
  echo "Need to install x,y,z"
- echo "Installing B"
+ echo "Installing c"
