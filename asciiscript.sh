@@ -1,4 +1,4 @@
-tput setaf 3
+tput setaf 54
  echo "                                    ▄▄▄▄▄▄"
  echo "                                  ▄▓▀    ▓▓▓██▄▄"
  echo "                               ▄▄▓▓  ▄▄▓▀▀     ▀▓▄"
