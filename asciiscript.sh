@@ -24,4 +24,4 @@ tput setaf 54
  echo "Setting up OpenAI Gym!"
  echo "Detecting dependencies"
  echo "Need to install x,y,z"
- echo "Installing X"
+ echo "Installing A"
