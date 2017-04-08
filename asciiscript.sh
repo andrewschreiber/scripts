@@ -19,6 +19,7 @@ tput setaf 54
  echo "      ▀▀█▓▓█▀▀    ▓▌▀████▀    ▀▀█▓██▀   ▓▓▌   ▐▓▓  ██▀       ██  ████████"
  echo "                  ▓▌                                                     "
  echo "                  ▓▌                                                     "
+ tput sgr0
  echo
  echo "Setting up OpenAI Gym!"
  echo "Detecting dependencies"
