@@ -26,14 +26,17 @@ read -rsp $'>> Press enter to begin <<\n'
 
 echo 
 echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "(Part 1) Create OpenAIGym folder"
+echo "(Part 1) OpenAIGym folder"
 echo "*********************************"
+echo
 sleep 1
 dir="OpenAIGym"
-if [ ! -d $dir ]; then
-     mkdir $dir
+if [ ! "${PWD##*/}" != $dir ]; then 
+     if [ ! -d $dir ]; then
+          mkdir $dir
+     fi
+     cd $dir
 fi
-cd $dir
 
 echo "(Part 1) Success!"
 echo
@@ -62,9 +65,9 @@ echo
 which -s conda 
 if [[ $? != 0 ]] ; then
     # Install conda
-    wget -c http://repo.continuum.io/miniconda/Miniconda-latest-MacOSX-x86_64.sh
-    chmod +x Miniconda-latest-MacOSX-x86_64.sh
-    ./Miniconda-latest-MacOS-x86_64.sh
+    wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+    chmod +x Miniconda3-latest-MacOSX-x86_64.sh
+    ./Miniconda3-latest-MacOSX-x86_64.sh
 else
     conda update conda
 fi
