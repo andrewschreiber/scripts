@@ -29,7 +29,7 @@ echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 1) Create OpenAIGym folder"
 echo "*********************************"
 pause 1
-dir='OpenAIGym' 
+dir="OpenAIGym"
 if [ ! -d $dir ]; then
      mkdir $dir
 fi
