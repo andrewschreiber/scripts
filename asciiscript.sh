@@ -23,23 +23,25 @@ tput sgr0
 echo
 echo "Setting up Gym. Estimated completion time: 5-10 minutes."
 echo "Your password will be requested to install Homebrew."
-echo ">> Press ENTER to begin <<"
+read -rsp $'>> Press enter to begin <<\n'
+
 echo 
 echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 1 | Create OpenAIGym folder"
+echo "(Part 1) Create OpenAIGym folder"
 echo "*********************************"
-pause 1
+sleep 1
 dir="OpenAIGym"
 if [ ! -d $dir ]; then
      mkdir $dir
 fi
 cd $dir
 
+echo "(Part 1) Success!
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 2 | Setup Homebrew"
+echo "(Part 2) Setup Homebrew"
 echo "*********************************"
-pause 1
+sleep 1
 echo
 which -s brew
 if [[ $? != 0 ]] ; then
@@ -48,12 +50,12 @@ if [[ $? != 0 ]] ; then
 else
     brew update
 fi
-
+echo "(Part 2) Success!"
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 3 | Setup Python 3 / Conda"
+echo "(Part 3) Setup Python 3 / Conda"
 echo "*********************************"
-pause 1
+sleep 1
 echo
 which -s conda 
 if [[ $? != 0 ]] ; then
@@ -63,27 +65,30 @@ else
     conda update conda
 fi
 
+echo "(Part 3) Success!"
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 4 | Install OpenAI Gym"
 echo "*********************************"
-pause 1
+sleep 1
 echo
 pip install gym
 
+echo "(Part 4) Success!"
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"
-pause 1
+sleep 1
 echo
 brew install cmake boost boost-python sdl2 swig wget
 
+echo "(Part 5) Success!"
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 6 | Installation complete! Testing a safety environment"
 echo "*********************************"
-pause 1
+sleep 1
 echo
 open .
 
