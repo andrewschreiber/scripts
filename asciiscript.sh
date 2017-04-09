@@ -52,8 +52,8 @@ if [[ $? != 0 ]] ; then
     # Install Homebrew
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
-    echo "Updating Homebrew. This may take a few minutes..."
-    brew update
+    echo "Brew already installed. Moving forward."
+    # brew update
 fi
 echo "(Part 2) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
