@@ -31,20 +31,18 @@ echo "*********************************"
 echo
 sleep 1
 dir="OpenAIGym"
-if [ ! "${PWD##*/}" != $dir ]; then 
+if [ "${PWD##*/}" != $dir ]; then 
      if [ ! -d $dir ]; then
           mkdir $dir
      fi
-     cd $dir
+     cd "$dir"
 fi
 
 echo "(Part 1) Success!"
-echo
-echo "**** OPENAI GYM SETUP SCRIPT ****"
+echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 2) Setup Homebrew"
-echo "*********************************"
-sleep 1
-echo
+echo "*********************************"; sleep 1; echo
+
 which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
@@ -53,22 +51,20 @@ else
     brew update
 fi
 echo "(Part 2) Success!"
-echo
-echo "**** OPENAI GYM SETUP SCRIPT ****"
+echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 3) Setup Python 3 / Conda"
 echo "Say yes to each prompt that asks"
 echo "Scroll down the license by pressing enter"
-echo "*********************************"
+echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
 
-sleep 1
-echo
 which -s conda 
 if [[ $? != 0 ]] ; then
     # Install conda
     wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     chmod +x Miniconda3-latest-MacOSX-x86_64.sh
     ./Miniconda3-latest-MacOSX-x86_64.sh
+    rm Miniconda3-latest-MacOSX-x86_64.sh
     source .
     # TODO: Need to get pip while in this current terminal, currently works only on the next terminal.
 else
@@ -76,30 +72,21 @@ else
 fi
 
 echo "(Part 3) Success!"
-echo
-echo "**** OPENAI GYM SETUP SCRIPT ****"
+echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 4 | Install OpenAI Gym"
-echo "*********************************"
-sleep 1
-echo
+echo "*********************************"; sleep 1; echo
 pip install gym
 
 echo "(Part 4) Success!"
-echo
-echo "**** OPENAI GYM SETUP SCRIPT ****"
+echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 5 | Install Gym Dependencies"
-echo "*********************************"
-sleep 1
-echo
+echo "*********************************"; sleep 1; echo
 brew install cmake boost boost-python sdl2 swig wget
 
 echo "(Part 5) Success!"
-echo
-echo "**** OPENAI GYM SETUP SCRIPT ****"
+echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 6 | Installation complete! Testing a safety environment"
-echo "*********************************"
-sleep 1
-echo
+echo "*********************************"; sleep 1; echo
 open .
 
 echo "Detecting dependencies"
