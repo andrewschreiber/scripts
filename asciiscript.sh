@@ -87,8 +87,8 @@ echo "(Part 5) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 6 | Download and run an example agent"
 echo "*********************************"; sleep 1; echo
-
-
+wget -c https://raw.githubusercontent.com/andrewschreiber/scripts/master/example_safety_agent.py
+python example_safety_agent.py
 
 open .
 
