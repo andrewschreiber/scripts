@@ -85,8 +85,11 @@ brew install cmake boost boost-python sdl2 swig wget
 
 echo "(Part 5) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 6 | Installation complete! Testing a safety environment"
+echo "Part 6 | Download and run an example agent"
 echo "*********************************"; sleep 1; echo
+
+
+
 open .
 
 echo "Detecting dependencies"
