@@ -21,8 +21,7 @@ echo "                  ▓▌                                                  
 echo "                  ▓▌                                                     "
 tput sgr0
 echo
-echo "Setting up Gym. Estimated completion time: 5-10 minutes."
-echo "Your password will be requested to install Homebrew."
+echo "Setting up Gym. ETA: 5-10 minutes. Your password is needed for Homebrew install."
 read -rsp $'>> Press enter to begin <<\n'
 
 echo 
@@ -36,7 +35,7 @@ if [ ! -d $dir ]; then
 fi
 cd $dir
 
-echo "(Part 1) Success!
+echo "(Part 1) Success!"
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 2) Setup Homebrew"
