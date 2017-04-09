@@ -26,7 +26,7 @@ echo "Your password will be requested to install Homebrew.
 echo ">> Press ENTER to begin <<"
 echo 
 echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 1) Create OpenAIGym folder"
+echo "Part 1 | Create OpenAIGym folder"
 echo "*********************************"
 pause 1
 dir="OpenAIGym"
@@ -37,7 +37,7 @@ cd $dir
 
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 2) Setup Homebrew"
+echo "Part 2 | Setup Homebrew"
 echo "*********************************"
 pause 1
 echo
@@ -51,7 +51,7 @@ fi
 
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 3) Setup Python 3 / Conda"
+echo "Part 3 | Setup Python 3 / Conda"
 echo "*********************************"
 pause 1
 echo
@@ -65,7 +65,7 @@ fi
 
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 4) Install OpenAI Gym"
+echo "Part 4 | Install OpenAI Gym"
 echo "*********************************"
 pause 1
 echo
@@ -73,7 +73,7 @@ pip install gym
 
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 5) Install Gym Dependencies"
+echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"
 pause 1
 echo
@@ -81,7 +81,7 @@ brew install cmake boost boost-python sdl2 swig wget
 
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 6) Installation complete! Testing a safety environment"
+echo "Part 6 | Installation complete! Testing a safety environment"
 echo "*********************************"
 pause 1
 echo
