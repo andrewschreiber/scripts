@@ -56,7 +56,8 @@ echo "(Part 2) Success!"
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 3) Setup Python 3 / Conda"
-echo "Say \'yes\' to each prompt that asks"
+echo "Say yes to each prompt that asks"
+echo "Scroll down the license by pressing enter"
 echo "*********************************"
 read -rsp $'>> Press enter to continue <<\n'
 
@@ -68,6 +69,7 @@ if [[ $? != 0 ]] ; then
     wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     chmod +x Miniconda3-latest-MacOSX-x86_64.sh
     ./Miniconda3-latest-MacOSX-x86_64.sh
+    # TODO: Need to get pip while in this current terminal, currently works only on the next terminal.
 else
     conda update conda
 fi
