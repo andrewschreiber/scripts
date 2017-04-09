@@ -69,6 +69,7 @@ if [[ $? != 0 ]] ; then
     wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     chmod +x Miniconda3-latest-MacOSX-x86_64.sh
     ./Miniconda3-latest-MacOSX-x86_64.sh
+    source .
     # TODO: Need to get pip while in this current terminal, currently works only on the next terminal.
 else
     conda update conda
