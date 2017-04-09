@@ -67,7 +67,8 @@ if [[ $? != 0 ]] ; then
     chmod +x Miniconda3-latest-MacOSX-x86_64.sh
     ./Miniconda3-latest-MacOSX-x86_64.sh
     rm Miniconda3-latest-MacOSX-x86_64.sh
-    exec bash
+    source ~/.bash_profile
+    # TODO: Add checking which shell for sourcing
     # TODO: Need to get pip while in this current terminal, currently works only on the next terminal.
 else
     conda update conda
