@@ -42,6 +42,7 @@ echo "(Part 1) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 2) Setup Homebrew"
 echo "*********************************"; sleep 1; echo
+echo "Reaching out to Homebrew..."
 
 which -s brew
 if [[ $? != 0 ]] ; then
@@ -75,7 +76,7 @@ echo "(Part 3) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 4 | Install OpenAI Gym"
 echo "*********************************"; sleep 1; echo
-pip install gym
+pip install 'gym[all]'
 
 echo "(Part 4) Success!"
 echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
