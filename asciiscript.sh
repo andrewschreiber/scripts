@@ -62,11 +62,12 @@ read -rsp $'>> Press enter to continue <<\n'
 which -s conda 
 if [[ $? != 0 ]] ; then
     # Install conda
+    brew install wget
     wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     chmod +x Miniconda3-latest-MacOSX-x86_64.sh
     ./Miniconda3-latest-MacOSX-x86_64.sh
     rm Miniconda3-latest-MacOSX-x86_64.sh
-    source .
+    exec bash
     # TODO: Need to get pip while in this current terminal, currently works only on the next terminal.
 else
     conda update conda
@@ -82,7 +83,7 @@ echo "(Part 4) Success!"
 echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"; sleep 1; echo
-brew install cmake boost boost-python sdl2 swig wget
+brew install cmake boost boost-python sdl2 swigj
 
 echo "(Part 5) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
