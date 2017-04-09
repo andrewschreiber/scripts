@@ -22,7 +22,7 @@ echo "                  ▓▌                                                  
 tput sgr0
 echo
 echo "Setting up Gym. Estimated completion time: 5-10 minutes."
-echo "Your password will be requested to install Homebrew. 
+echo "Your password will be requested to install Homebrew."
 echo ">> Press ENTER to begin <<"
 echo 
 echo "**** OPENAI GYM SETUP SCRIPT ****"
