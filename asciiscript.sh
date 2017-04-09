@@ -94,9 +94,9 @@ else
         conda create -n p36 python=3.6
         set -e
         source activate p36
-        echo "(Tip) See above for how to activate/deactivate `p36`"
-        echo "(Tip) Gym is setup for new conda environment `p36`"
-        echo "(Tip) Add `source activate p36` to your .bash_profile"
+        echo "(Tip) See above for how to activate/deactivate 'p36'"
+        echo "(Tip) Gym is setup for new conda environment 'p36'"
+        echo "(Tip) Add 'source activate p36' to your .bash_profile"
         read -rsp $'>> Press enter to continue <<\n'
         ;;
      esac
