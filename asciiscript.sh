@@ -1,3 +1,4 @@
+set -e
 tput setaf 54
 echo "                                    ▄▄▄▄▄▄"
 echo "                                  ▄▓▀    ▓▓▓██▄▄"
@@ -55,6 +56,14 @@ else
     echo "Brew already installed. Moving forward."
     # brew update
 fi
+
+which -s brew
+if [[ $? != 0 ]] ; then
+     echo "Brew installation failed. Please copy the terminal text to the github issues page"
+     echo "https://github.com/andrewschreiber/scripts/issues/new"
+     exit
+fi
+
 echo "(Part 2) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 3) Setup Python 3 / Conda"
@@ -75,8 +84,23 @@ if [[ $? != 0 ]] ; then
     source ~/.bash_profile
 else
     # need to switch to python 3
-    echo "Switching to Python 3"
+    echo "Updating conda..."
     conda update conda
+    
+
+    echo "Switching to Python 3.6 using conda..."
+    conda create -n python36 python=3.6
+    source activate python36
+    echo "(Tip) Gym is setup for new conda environment `python36`"
+    echo "(Tip) See above for how to activate/deactivate `python36`"
+    read -rsp $'>> Press enter to continue <<\n'
+fi
+
+which -s conda
+if [[ $? != 0 ]] ; then
+     echo "Conda installation failed. Please copy the terminal text to the github issues page"
+     echo "https://github.com/andrewschreiber/scripts/issues/new"
+     exit
 fi
 
 echo "(Part 3) Success!"
