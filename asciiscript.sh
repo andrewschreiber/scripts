@@ -53,13 +53,18 @@ echo "(Part 2) Success!"
 echo
 echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 3) Setup Python 3 / Conda"
+echo "Say \'yes\' to each prompt that asks"
 echo "*********************************"
+read -rsp $'>> Press enter to continue <<\n'
+
 sleep 1
 echo
 which -s conda 
 if [[ $? != 0 ]] ; then
     # Install conda
-    bash <(curl -Ls https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh)
+    wget -c http://repo.continuum.io/miniconda/Miniconda-latest-MacOSX-x86_64.sh
+    chmod +x Miniconda-latest-MacOSX-x86_64.sh
+    ./Miniconda-latest-MacOS-x86_64.sh
 else
     conda update conda
 fi
