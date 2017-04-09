@@ -21,7 +21,7 @@ echo "                  ▓▌                                                  
 echo "                  ▓▌                                                     "
 tput sgr0
 echo
-echo "Setting up Gym. ETA: 5-10 minutes. Your password is needed for Homebrew install."
+echo "Setting up Gym & dependencies. Takes 4-20 minutes, based on internet speed."
 read -rsp $'>> Press enter to begin <<\n'
 
 echo 
@@ -46,6 +46,9 @@ echo "Reaching out to Homebrew..."
 
 which -s brew
 if [[ $? != 0 ]] ; then
+    echo "Installing Homebrew. Enter your system password at prompt, then press enter."
+    echo "(Tip) You will have a few minutes to grab coffee."
+    sleep 8
     # Install Homebrew
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
@@ -58,6 +61,7 @@ echo "(Tip) Say yes to each prompt that asks"
 echo "(Tip) Scroll down the license by pressing enter"
 echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
+echo "Installing Miniconda..."
 
 which -s conda 
 if [[ $? != 0 ]] ; then
@@ -77,14 +81,14 @@ echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 4 | Install OpenAI Gym"
 echo "*********************************"; sleep 1; echo
 
-pip install 'gym[safety]'
+pip install 'gym[all]'
 
 echo "(Part 4) Success!"
 echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"; sleep 1; echo
 
-brew install cmake boost boost-python sdl2 swigj
+brew install cmake boost boost-python sdl2 swig
 
 echo "(Part 5) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
