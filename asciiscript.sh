@@ -59,7 +59,7 @@ echo "(Part 2) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 3) Setup Python 3 / Conda"
 echo "(Tip) Say yes to each prompt that asks"
-echo "(Tip) Scroll down the license by pressing enter"
+echo "(Tip) Scroll down the license by holding enter"
 echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
 echo "Installing Miniconda..."
@@ -74,6 +74,8 @@ if [[ $? != 0 ]] ; then
     rm Miniconda3-latest-MacOSX-x86_64.sh
     source ~/.bash_profile
 else
+    # need to switch to python 3
+    echo "Switching to Python 3"
     conda update conda
 fi
 
@@ -89,7 +91,7 @@ echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"; sleep 1; echo
 
-brew install cmake boost boost-python sdl2 swig
+brew install cmake boost boost-python sdl2 swig wget
 
 echo "(Part 5) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
