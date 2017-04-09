@@ -77,7 +77,7 @@ if [[ $? != 0 ]] ; then
     ./Miniconda3-latest-MacOSX-x86_64.sh
     rm Miniconda3-latest-MacOSX-x86_64.sh
     source ~/.bash_profile
-    echo "(Tip) For Conda to work, restart Terminal after the script completes.
+    echo "(Tip) For Conda to work, restart Terminal after the script completes."
     read -rsp $'>> Press enter to continue <<\n'
 
 else
