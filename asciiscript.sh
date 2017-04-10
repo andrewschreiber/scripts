@@ -97,6 +97,12 @@ else
     else
         brew install wget
     fi
+    if command_exists swig ; then
+        true
+    else
+        brew install swig
+    fi
+    
     set +e
     # if file exists skip
     wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
@@ -129,7 +135,7 @@ echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"; sleep 1; echo
 
 set +e
-brew install boost boost-python sdl2 swig wget
+brew install boost boost-python sdl2 wget
 set -e
 
 echo "(Part 5) Success!"
