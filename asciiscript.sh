@@ -4,6 +4,14 @@ command_exists () {
     type "$1" &> /dev/null ;
 }
 
+safe_brew_install () {
+    if command_exists "$1" ; then 
+        echo "[CHECK] $1 already installed.
+    else
+        echo "Installing $1..."
+        brew install "$1"
+}
+
 set -e
 # set +e to disable
 tput setaf 54
@@ -92,11 +100,13 @@ if command_exists conda ; then
 else
     # Install conda
     echo "Installing Miniconda..."
-    if command_exists wget ; then 
-        echo "Wget already installed"
-    else
-        brew install wget
-    fi
+    safe_brew_install wget
+    
+    #if command_exists wget ; then 
+    #    echo "Wget already installed"
+    #else
+    #    brew install wget
+    #fi
     
     set +e
     # if file exists skip
@@ -112,39 +122,43 @@ fi
 
 echo "(Part 3) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 4 | Install OpenAI Gym"
-echo "(Tip) The pachi-py step takes a few minutes."
+echo "Part 4 | Configure Dependencies"
 echo "*********************************"; sleep 1; echo
 
-if command_exists cmake ; then
-   echo "cmake already installed"
-else 
-   echo "Installing cmake"
-   brew install cmake
-fi
+safe_brew_install cmake
+safe_brew_install swig
+safe_brew_install boost
+safe_brew_install boost-python
+safe_brew_install sdl2
+safe_brew_install wget
 
-if command_exists swig ; then
-    echo "swig already installed"
-else
-    echo "Installing swig"
-    brew install swig
-fi
 
-pip install 'gym[all]'
+#if command_exists cmake ; then
+#   echo "cmake already installed"
+#else 
+#   echo "Installing cmake..."
+#   brew install cmake
+#fi
+
+#if command_exists swig ; then
+#    echo "swig already installed"
+#else
+#    echo "Installing swig..."
+#    brew install swig
+#fi
+
 
 echo "(Part 4) Success!"
 echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 5 | Install Gym Dependencies"
+echo "(Part 5) Install OpenAI Gym"
+echo "(Tip) The pachi-py step takes a few minutes."
 echo "*********************************"; sleep 1; echo
 
-
-set +e
-brew install boost boost-python sdl2 wget
-set -e
+pip install 'gym[all]'
 
 echo "(Part 5) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 6 | Download and run an example agent"
+echo "(Part 6) Download and run an example agent"
 echo "*********************************"; sleep 1; echo
 
 set +e
