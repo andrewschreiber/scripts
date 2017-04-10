@@ -92,8 +92,8 @@ if command_exists conda ; then
 else
     # Install conda
     echo "Installing Miniconda..."
-    brew install wget
     set +e
+    brew install wget
     wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     chmod +x Miniconda3-latest-MacOSX-x86_64.sh
     set -e
