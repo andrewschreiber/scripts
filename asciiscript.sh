@@ -97,11 +97,6 @@ else
     else
         brew install wget
     fi
-    if command_exists swig ; then
-        echo "Swig already installed"
-    else
-        brew install swig
-    fi
     
     set +e
     # if file exists skip
@@ -135,7 +130,7 @@ echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"; sleep 1; echo
 
 set +e
-brew install boost boost-python sdl2 wget
+brew install swig boost boost-python sdl2 wget
 set -e
 
 echo "(Part 5) Success!"
