@@ -112,7 +112,7 @@ echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 4 | Install OpenAI Gym"
 echo "(Tip) The pachi-py step takes a few minutes.
 echo "*********************************"; sleep 1; echo
-if [command_exists cmake !=0] ; then 
+if [[ command_exists cmake !=0 ]] ; then 
     brew install cmake
 fi
 pip install 'gym[all]'
@@ -132,6 +132,7 @@ echo "Part 6 | Download and run an example agent"
 echo "*********************************"; sleep 1; echo
 
 set +e
+#check if file already exists
 wget -c https://raw.githubusercontent.com/andrewschreiber/scripts/master/example_safety_agent.py
 set -e
 # Q: How many sample agents should we download?
