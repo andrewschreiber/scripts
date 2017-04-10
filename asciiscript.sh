@@ -67,7 +67,9 @@ if command_exists brew ; then
     echo "Brew already installed. Moving forward."
 else
     echo "Installing Homebrew. Enter your system password at prompt, then press enter."
-    echo "(Tip) You will have a few minutes to grab coffee."
+    tput setaf 4
+    echo "(Tip) After entering password, it takes awhile."
+    tput sgr0
     sleep 8
     echo "Downloading Homebrew..."
     # Install Homebrew
@@ -99,8 +101,10 @@ if command_exists conda ; then
         conda create -n p36 python=3.6
         set -e
         source activate p36
+        tput setaf 4
         echo "(Tip) New terminal tabs/windows must run 'source activate p36' for Gym"
         echo "(Tip) Add the above command to your .bash_profile for auto-activation"
+        tput sgr0
         read -rsp $'>> Press enter to continue <<\n'
         ;;
      esac
@@ -114,7 +118,9 @@ else
     ./Miniconda3-latest-MacOSX-x86_64.sh
     rm Miniconda3-latest-MacOSX-x86_64.sh
     source ~/.bash_profile
+    tput setaf 4
     echo "(Tip) For Conda to work, restart Terminal after the script completes."
+    tput sgr0
     read -rsp $'>> Press enter to continue <<\n'
 fi
 
