@@ -113,7 +113,7 @@ echo "Part 4 | Install OpenAI Gym"
 echo "(Tip) The pachi-py step takes a few minutes."
 echo "*********************************"; sleep 1; echo
 
-if [ command_exists cmake !=0 ] ; then 
+if [command_exists cmake !=0] ; then 
     brew install cmake
 fi
 
