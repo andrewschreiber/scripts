@@ -90,13 +90,13 @@ else
         ;;
     *)
         echo "Switching to Python 3.6 using Conda..."
+        
         set +e
         conda create -n p36 python=3.6
         set -e
         source activate p36
-        echo "(Tip) See above for how to activate/deactivate 'p36'"
-        echo "(Tip) Gym is setup for new conda environment 'p36'"
-        echo "(Tip) Add 'source activate p36' to your .bash_profile"
+        echo "(Tip) You must activate 'p36' to use Gym. Command: 'source activate p36'"
+        echo "(Tip) Add the above command to your .bash_profile for auto-activation"
         read -rsp $'>> Press enter to continue <<\n'
         ;;
      esac
@@ -131,3 +131,5 @@ set -e
 
 read -rsp $'>> Press enter to start example_safety_agent <<\n'
 python example_safety_agent.py
+
+echo "SUCCESS !!!!!!!!!"
