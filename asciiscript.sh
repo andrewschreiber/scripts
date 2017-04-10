@@ -65,7 +65,9 @@ echo "(Tip) Scroll down the license by holding enter"
 echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
 
+set +e
 which -s conda 
+set -e
 if [[ $? != 0 ]] ; then
     # Install conda
     echo "Installing Miniconda..."
