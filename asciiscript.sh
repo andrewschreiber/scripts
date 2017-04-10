@@ -44,7 +44,7 @@ echo "                  ▓▌                                                  
 tput sgr0
 echo; echo "Setting up Gym & dependencies. Takes 5-20 minutes, based on internet speed."
 
-if ! command_exists xcode-select ; then 
+if command_exists xcode-select ; then 
   echo "Installing Xcode Command Line Tools..."
   clt_placeholder="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
   sudo "/usr/bin/touch", clt_placeholder
