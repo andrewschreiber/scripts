@@ -76,7 +76,7 @@ else
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-echo "(Part 2) Success!"
+echo; echo "(Part 2) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 3) Setup Python 3 / Conda"
 tput setaf 4
@@ -127,7 +127,7 @@ else
     read -rsp $'>> Press enter to continue <<\n'
 fi
 
-echo "(Part 3) Success!"
+echo; echo "(Part 3) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 4 | Configure Dependencies"
 echo "*********************************"; sleep 1; echo
@@ -142,8 +142,8 @@ echo "Xcode Command Line Tools successfully configured."
 
 safe_brew_install cmake swig boost boost-python sdl2 wget
 
-echo "(Part 4) Success!"
-echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
+echo; echo "(Part 4) Success!"
+echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 5) Install OpenAI Gym"
 tput setaf 4
 echo "(Tip) The pachi-py step takes awhile."
@@ -152,7 +152,7 @@ echo "*********************************"; sleep 1; echo
 
 pip install 'gym[all]'
 
-echo "(Part 5) Success!"
+echo; echo "(Part 5) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 6) Download and run an example agent"
 echo "*********************************"; sleep 1; echo
