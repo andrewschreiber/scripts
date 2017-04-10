@@ -70,24 +70,10 @@ echo "(Tip) Scroll down the license by holding enter"
 echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
 
-if [ hash conda 2>/dev/null ] ; then
-    # Install conda
-    echo "Installing Miniconda..."
-    brew install wget
-    set +e
-    wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-    chmod +x Miniconda3-latest-MacOSX-x86_64.sh
-    set -e
-    ./Miniconda3-latest-MacOSX-x86_64.sh
-    rm Miniconda3-latest-MacOSX-x86_64.sh
-    source ~/.bash_profile
-    echo "(Tip) For Conda to work, restart Terminal after the script completes."
-    read -rsp $'>> Press enter to continue <<\n'
-
-else
+if command_exists conda ; then
     echo "Updating conda..."
     conda update conda
-    
+
     case "$(python --version 2>&1)" in
     *" 3.6"*)
         echo "Using Python 3.6 already. Continuing..."
@@ -104,6 +90,19 @@ else
         read -rsp $'>> Press enter to continue <<\n'
         ;;
      esac
+else
+    # Install conda
+    echo "Installing Miniconda..."
+    brew install wget
+    set +e
+    wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+    chmod +x Miniconda3-latest-MacOSX-x86_64.sh
+    set -e
+    ./Miniconda3-latest-MacOSX-x86_64.sh
+    rm Miniconda3-latest-MacOSX-x86_64.sh
+    source ~/.bash_profile
+    echo "(Tip) For Conda to work, restart Terminal after the script completes."
+    read -rsp $'>> Press enter to continue <<\n'
 fi
 
 echo "(Part 3) Success!"
