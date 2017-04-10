@@ -135,12 +135,20 @@ if ! command_exists xcode-select ; then
   echo "Installing $clt_label"
   /usr/sbin/softwareupdate -i "$clt_label"
   /bin/rm -f "$clt_placeholder"
-  echo "Setting active developer path to standard /Library/Developer/CommandLineTools ..."
-  sudo /usr/bin/xcode-select --switch /Library/Developer/CommandLineTools
-  echo "Succeeded at installing Xcode Command Line Tools"
 else
   echo "Command line tools exist"
 fi
+
+active_path=$(xcode-select -p)
+
+if [[ $active_path != "/Library/Developer/CommandLineTools"]]
+    echo "Current xcode-select path is $active_path"
+    echo "Set active developer path to standard /Library/Developer/CommandLineTools"
+    echo "Please enter system password:"
+    sudo /usr/bin/xcode-select --switch /Library/Developer/CommandLineTools
+fi
+
+echo "Succeeded at configuring Xcode Command Line Tools"
 
 safe_brew_install cmake swig boost boost-python sdl2 wget
 
