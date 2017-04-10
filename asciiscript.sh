@@ -46,7 +46,7 @@ echo "*********************************"; sleep 1; echo
 echo "Reaching out to Homebrew..."
 
 which -s brew
-if [[ $? != 0 ]] ; then
+if [ hash brew 2>/dev/null ] ; then
     echo "Installing Homebrew. Enter your system password at prompt, then press enter."
     echo "(Tip) You will have a few minutes to grab coffee."
     sleep 8
@@ -65,10 +65,7 @@ echo "(Tip) Scroll down the license by holding enter"
 echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
 
-set +e
-which -s conda 
-set -e
-if [[ $? != 0 ]] ; then
+if [ hash conda 2>/dev/null ] ; then
     # Install conda
     echo "Installing Miniconda..."
     brew install wget
