@@ -116,7 +116,9 @@ else
     wget -c -nc https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     chmod +x Miniconda3-latest-MacOSX-x86_64.sh
     ./Miniconda3-latest-MacOSX-x86_64.sh
+    echo "Finished installing Miniconda"
     rm Miniconda3-latest-MacOSX-x86_64.sh
+    echo "Refreshed .bash_profile"
     source ~/.bash_profile
     tput setaf 4
     echo "(Tip) For Conda to work, restart Terminal after the script completes."
