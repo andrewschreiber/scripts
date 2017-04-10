@@ -43,6 +43,21 @@ echo "                  ▓▌                                                  
 echo "                  ▓▌                                                     "
 tput sgr0
 echo; echo "Setting up Gym & dependencies. Takes 5-20 minutes, based on internet speed."
+
+if ! command_exists xcode-select ; then 
+  echo "Installing Xcode Command Line Tools..."
+  clt_placeholder="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
+  sudo "/usr/bin/touch", clt_placeholder
+  softwareupdate -l | grep -B 1 -E "Command Line (Developer|Tools)" | awk -F"*" '/^ +\\*/ {print $2}' | sed 's/^ *//' | tail -n1
+  echo "Installing $clt_label"
+  sudo "/usr/sbin/softwareupdate", "-i", clt_label
+  sudo "/bin/rm", "-f", clt_placeholder
+  sudo "/usr/bin/xcode-select", "--switch", "/Library/Developer/CommandLineTools"
+else
+  echo "Command line tools exist"
+fi
+
+
 read -rsp $'>> Press enter to begin <<\n'
 
 echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
