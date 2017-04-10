@@ -117,9 +117,17 @@ echo "(Tip) The pachi-py step takes a few minutes."
 echo "*********************************"; sleep 1; echo
 
 if command_exists cmake ; then
-   true
+   echo "cmake already installed"
 else 
+   echo "Installing cmake"
    brew install cmake
+fi
+
+if command_exists swig ; then
+    echo "swig already installed"
+else
+    echo "Installing swig"
+    brew install swig
 fi
 
 pip install 'gym[all]'
@@ -129,13 +137,6 @@ echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"; sleep 1; echo
 
-if command_exists swig ; then
-    echo "swig already installed"
-else
-    echo "Installing swig"
-
-    brew install swig
-fi
 
 set +e
 brew install boost boost-python sdl2 wget
