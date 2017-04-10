@@ -114,7 +114,9 @@ echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"; sleep 1; echo
 
+set +e
 brew install cmake boost boost-python sdl2 swig wget
+set -e
 
 echo "(Part 5) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
