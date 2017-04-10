@@ -5,12 +5,16 @@ command_exists () {
 }
 
 safe_brew_install () {
+    while [ $# -gt 0 ]
+    do
     if brew ls --versions "$1" > /dev/null ; then 
         echo "[CHECK] $1 already installed."
     else
         echo "Installing $1..."
         brew install "$1"
     fi
+    shift
+    done
 }
 
 set -e
