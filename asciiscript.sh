@@ -151,8 +151,6 @@ read -rsp $'>> Press enter to start example_safety_agent <<\n'
 python example_safety_agent.py
 
 echo; echo
-tput setaf 54
-
 #tput setaf 1
 echo "  ███████╗ ██╗   ██╗  ██████╗  ██████╗ ███████╗ ███████╗ ███████╗    ██╗"
 #tput setaf 3
