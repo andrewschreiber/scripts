@@ -5,7 +5,7 @@ command_exists () {
 }
 
 safe_brew_install () {
-    if command_exists "$1" ; then 
+    if brew ls --versions "$1" > /dev/null ; then 
         echo "[CHECK] $1 already installed."
     else
         echo "Installing $1..."
@@ -93,7 +93,7 @@ if command_exists conda ; then
         conda create -n p36 python=3.6
         set -e
         source activate p36
-        echo "(Tip) You must activate 'p36' to use Gym. Command: 'source activate p36'"
+        echo "(Tip) New terminal tabs/windows must run 'source activate p36' for Gym"
         echo "(Tip) Add the above command to your .bash_profile for auto-activation"
         read -rsp $'>> Press enter to continue <<\n'
         ;;
@@ -126,13 +126,12 @@ echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 4 | Configure Dependencies"
 echo "*********************************"; sleep 1; echo
 
-safe_brew_install cmake
-safe_brew_install swig
-safe_brew_install boost
-safe_brew_install boost-python
-safe_brew_install sdl2
-safe_brew_install wget
-
+safe_brew_install cmake swig boost boost-python sdl2 wget
+#safe_brew_install swig
+#safe_brew_install boost
+#safe_brew_install boost-python
+#safe_brew_install sdl2
+#safe_brew_install wget
 
 #if command_exists cmake ; then
 #   echo "cmake already installed"
