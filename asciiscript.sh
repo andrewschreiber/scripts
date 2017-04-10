@@ -1,4 +1,10 @@
 #!/bin/sh
+
+command_exists () {
+    type "$1" &> /dev/null ;
+}
+
+
 set -e
 # set +e to disable
 tput setaf 54
@@ -45,16 +51,15 @@ echo "(Part 2) Setup Homebrew"
 echo "*********************************"; sleep 1; echo
 echo "Reaching out to Homebrew..."
 
-which -s brew
-if [ hash brew 2>/dev/null ] ; then
+if command_exists brew ; then
+    echo "Brew already installed. Moving forward."
+else
     echo "Installing Homebrew. Enter your system password at prompt, then press enter."
     echo "(Tip) You will have a few minutes to grab coffee."
     sleep 8
     echo "Downloading Homebrew..."
     # Install Homebrew
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-    echo "Brew already installed. Moving forward."
 fi
 
 echo "(Part 2) Success!"
