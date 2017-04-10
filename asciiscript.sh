@@ -6,10 +6,11 @@ command_exists () {
 
 safe_brew_install () {
     if command_exists "$1" ; then 
-        echo "[CHECK] $1 already installed.
+        echo "[CHECK] $1 already installed."
     else
         echo "Installing $1..."
         brew install "$1"
+    fi
 }
 
 set -e
