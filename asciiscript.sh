@@ -44,22 +44,6 @@ echo "                  ▓▌                                                  
 tput sgr0
 echo; echo "Setting up Gym & dependencies. Takes 5-20 minutes, based on internet speed."
 
-if ! command_exists xcode-select ; then 
-# Use Homebrew's CLI approach https://raw.githubusercontent.com/Homebrew/install/master/install
-  echo "Installing Xcode Command Line Tools..."
-  clt_placeholder="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
-  /usr/bin/touch "$clt_placeholder"
-  softwareupdate -l | grep -B 1 -E "Command Line (Developer|Tools)" | awk -F"*" '/^ +\\*/ {print $2}' | sed 's/^ *//' | tail -n1
-  echo "Installing $clt_label"
-  /usr/sbin/softwareupdate -i "$clt_label"
-  /bin/rm -f "$clt_placeholder"
-  echo "Setting active developer path to standard /Library/Developer/CommandLineTools ..."
-  sudo /usr/bin/xcode-select --switch /Library/Developer/CommandLineTools
-else
-  echo "Command line tools exist"
-fi
-
-
 read -rsp $'>> Press enter to begin <<\n'
 
 echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
@@ -141,6 +125,22 @@ echo "(Part 3) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 4 | Configure Dependencies"
 echo "*********************************"; sleep 1; echo
+
+if ! command_exists xcode-select ; then 
+# Use Homebrew's CLI approach https://raw.githubusercontent.com/Homebrew/install/master/install
+  echo "Installing Xcode Command Line Tools..."
+  clt_placeholder="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
+  sudo /usr/bin/touch "$clt_placeholder"
+  softwareupdate -l | grep -B 1 -E "Command Line (Developer|Tools)" | awk -F"*" '/^ +\\*/ {print $2}' | sed 's/^ *//' | tail -n1
+  echo "Installing $clt_label"
+  /usr/sbin/softwareupdate -i "$clt_label"
+  /bin/rm -f "$clt_placeholder"
+  echo "Setting active developer path to standard /Library/Developer/CommandLineTools ..."
+  sudo /usr/bin/xcode-select --switch /Library/Developer/CommandLineTools
+  echo "Succeeded at installing Xcode Command Line Tools"
+else
+  echo "Command line tools exist"
+fi
 
 safe_brew_install cmake swig boost boost-python sdl2 wget
 
