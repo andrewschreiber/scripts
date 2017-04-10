@@ -86,6 +86,7 @@ tput sgr0
 echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
 
+source ~/.bash_profile
 if command_exists conda ; then
     
     echo "Updating conda..."
