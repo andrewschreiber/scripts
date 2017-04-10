@@ -47,11 +47,11 @@ echo; echo "Setting up Gym & dependencies. Takes 5-20 minutes, based on internet
 if command_exists xcode-select ; then 
   echo "Installing Xcode Command Line Tools..."
   clt_placeholder="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
-  /usr/bin/touch$clt_placeholder
+  /usr/bin/touch "$clt_placeholder"
   softwareupdate -l | grep -B 1 -E "Command Line (Developer|Tools)" | awk -F"*" '/^ +\\*/ {print $2}' | sed 's/^ *//' | tail -n1
   echo "Installing $clt_label"
-  /usr/sbin/softwareupdate -i $clt_label
-  /bin/rm -f $clt_placeholder
+  /usr/sbin/softwareupdate -i "$clt_label"
+  /bin/rm -f "$clt_placeholder"
   /usr/bin/xcode-select --switch /Library/Developer/CommandLineTools
 else
   echo "Command line tools exist"
