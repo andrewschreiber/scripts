@@ -4,7 +4,6 @@ command_exists () {
     type "$1" &> /dev/null ;
 }
 
-
 set -e
 # set +e to disable
 tput setaf 54
