@@ -19,6 +19,8 @@ safe_brew_install () {
 
 set -e
 # set +e to disable
+    safe_brew_install wget
+
 tput setaf 54
 echo "                                    ▄▄▄▄▄▄"
 echo "                                  ▄▓▀    ▓▓▓██▄▄"
