@@ -80,7 +80,7 @@ echo; echo "(Part 2) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 3) Setup Python 3 / Conda"
 tput setaf 4
-echo "(Tip) Say yes to each prompt that asks"
+echo "(Tip) Say 'yes' to each prompt that asks"
 echo "(Tip) Scroll down the license by holding enter"
 tput sgr0
 echo "*********************************"; echo
@@ -139,7 +139,12 @@ read -rsp $'>> Press enter to continue <<\n'
 set +e
 xcode-select --install
 set -e
-echo "Xcode Command Line Tools successfully configured."
+if command_exists xcode-select ; then 
+    echo; echo "[CHECK] Xcode Command Line Tools successfully configured."
+else
+    echo "Failed to install Xcode Command Line tools. Exiting"
+    exit 0
+fi
 
 safe_brew_install cmake swig boost boost-python sdl2 wget
 
