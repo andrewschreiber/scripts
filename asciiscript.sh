@@ -141,10 +141,10 @@ fi
 
 active_path=$(xcode-select -p)
 
-if [[ $active_path != "/Library/Developer/CommandLineTools"]]
+if [[ "$active_path" != "/Library/Developer/CommandLineTools" ]] ; then
     echo "Current xcode-select path is $active_path"
-    echo "Set active developer path to standard /Library/Developer/CommandLineTools"
-    echo "Please enter system password:"
+    echo "Need to set active developer path to standard /Library/Developer/CommandLineTools"
+    echo "System password:"
     sudo /usr/bin/xcode-select --switch /Library/Developer/CommandLineTools
 fi
 
