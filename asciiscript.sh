@@ -129,8 +129,16 @@ echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"; sleep 1; echo
 
+if command_exists swig ; then
+    echo "swig already installed"
+else
+    echo "Installing swig"
+
+    brew install swig
+fi
+
 set +e
-brew install swig boost boost-python sdl2 wget
+brew install boost boost-python sdl2 wget
 set -e
 
 echo "(Part 5) Success!"
