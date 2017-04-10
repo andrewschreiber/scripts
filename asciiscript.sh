@@ -92,8 +92,11 @@ if command_exists conda ; then
 else
     # Install conda
     echo "Installing Miniconda..."
+    if [command_exists wget != 0] ; then 
+        brew install wget
+    fi
     set +e
-    brew install wget
+    # if file exists skip
     wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     chmod +x Miniconda3-latest-MacOSX-x86_64.sh
     set -e
@@ -107,8 +110,11 @@ fi
 echo "(Part 3) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 4 | Install OpenAI Gym"
+echo "(Tip) The pachi-py step takes a few minutes.
 echo "*********************************"; sleep 1; echo
-
+if [command_exists cmake !=0] ; then 
+    brew install cmake
+fi
 pip install 'gym[all]'
 
 echo "(Part 4) Success!"
@@ -117,7 +123,7 @@ echo "Part 5 | Install Gym Dependencies"
 echo "*********************************"; sleep 1; echo
 
 set +e
-brew install cmake boost boost-python sdl2 swig wget
+brew install boost boost-python sdl2 swig wget
 set -e
 
 echo "(Part 5) Success!"
