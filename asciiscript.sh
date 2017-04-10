@@ -116,6 +116,7 @@ else
     wget -c -nc https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     chmod +x Miniconda3-latest-MacOSX-x86_64.sh
     ./Miniconda3-latest-MacOSX-x86_64.sh
+    # Dying around here for some reason, suddenly. Is it -nc flag? Or...?
     echo "Finished installing Miniconda"
     rm Miniconda3-latest-MacOSX-x86_64.sh
     echo "Refreshed .bash_profile"
