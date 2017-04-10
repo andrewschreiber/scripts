@@ -151,17 +151,12 @@ read -rsp $'>> Press enter to start example_safety_agent <<\n'
 python example_safety_agent.py
 
 echo; echo
-#tput setaf 1
+tput setaf 54
 echo "  ███████╗ ██╗   ██╗  ██████╗  ██████╗ ███████╗ ███████╗ ███████╗    ██╗"
-#tput setaf 3
 echo "  ██╔════╝ ██║   ██║ ██╔════╝ ██╔════╝ ██╔════╝ ██╔════╝ ██╔════╝    ██║"
-#tput setaf 2
 echo "  ███████╗ ██║   ██║ ██║      ██║      █████╗   ███████╗ ███████╗    ██║"
-#tput setaf 4
 echo "  ╚════██║ ██║   ██║ ██║      ██║      ██╔══╝   ╚════██║ ╚════██║    ╚═╝"
-#tput setaf 5
 echo "  ███████║ ╚██████╔╝ ╚██████╗ ╚██████╗ ███████╗ ███████║ ███████║    ██╗"
-#tput setaf 54
 echo "  ╚══════╝  ╚═════╝   ╚═════╝  ╚═════╝ ╚══════╝ ╚══════╝ ╚══════╝    ╚═╝"
 tput sgr0
 echo; echo; echo "Open AI Gym setup complete."
