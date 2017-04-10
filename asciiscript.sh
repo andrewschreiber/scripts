@@ -79,8 +79,10 @@ fi
 echo "(Part 2) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 3) Setup Python 3 / Conda"
+tput setaf 4
 echo "(Tip) Say yes to each prompt that asks"
 echo "(Tip) Scroll down the license by holding enter"
+tput sgr0
 echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
 
@@ -139,7 +141,9 @@ safe_brew_install cmake swig boost boost-python sdl2 wget
 echo "(Part 4) Success!"
 echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "(Part 5) Install OpenAI Gym"
+tput setaf 4
 echo "(Tip) The pachi-py step takes a few minutes."
+tput sgr0
 echo "*********************************"; sleep 1; echo
 
 pip install 'gym[all]'
