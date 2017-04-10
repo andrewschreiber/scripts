@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 command_exists () {
     type "$1" &> /dev/null ;
@@ -7,19 +8,29 @@ command_exists () {
 safe_brew_install () {
     while [ $# -gt 0 ]
     do
-    if brew ls --versions "$1" > /dev/null ; then 
-        echo "[CHECK] $1 already installed."
-    else
-        echo "Installing $1..."
-        brew install "$1"
-    fi
+        if brew ls --versions "$1" > /dev/null ; then 
+           echo "[CHECK] $1 already installed."
+        else
+           echo "Installing $1..."
+           brew install "$1"
+        fi
     shift
     done
 }
 
-set -e
-# set +e to disable
-    safe_brew_install wget
+tput setaf 1
+echo "███████╗██╗   ██╗ ██████╗ ██████╗███████╗███████╗███████╗    ██╗"
+tput setaf 2
+echo "██╔════╝██║   ██║██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝    ██║"
+tput setaf 3
+echo "███████╗██║   ██║██║     ██║     █████╗  ███████╗███████╗    ██║"
+tput setaf 4
+echo "╚════██║██║   ██║██║     ██║     ██╔══╝  ╚════██║╚════██║    ╚═╝"
+tput setaf 5
+echo "███████║╚██████╔╝╚██████╗╚██████╗███████╗███████║███████║    ██╗"
+tput setaf 6
+echo "╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝    ╚═╝"
+tput sgr0
 
 tput setaf 54
 echo "                                    ▄▄▄▄▄▄"
@@ -85,9 +96,9 @@ echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
 
 if command_exists conda ; then
+    
     echo "Updating conda..."
     conda update conda
-
     case "$(python --version 2>&1)" in
     *" 3.6"*)
         echo "Using Python 3.6 already. Continuing..."
@@ -109,12 +120,6 @@ else
     echo "Installing Miniconda..."
     safe_brew_install wget
     
-    #if command_exists wget ; then 
-    #    echo "Wget already installed"
-    #else
-    #    brew install wget
-    #fi
-    
     set +e
     # if file exists skip
     wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
@@ -133,26 +138,6 @@ echo "Part 4 | Configure Dependencies"
 echo "*********************************"; sleep 1; echo
 
 safe_brew_install cmake swig boost boost-python sdl2 wget
-#safe_brew_install swig
-#safe_brew_install boost
-#safe_brew_install boost-python
-#safe_brew_install sdl2
-#safe_brew_install wget
-
-#if command_exists cmake ; then
-#   echo "cmake already installed"
-#else 
-#   echo "Installing cmake..."
-#   brew install cmake
-#fi
-
-#if command_exists swig ; then
-#    echo "swig already installed"
-#else
-#    echo "Installing swig..."
-#    brew install swig
-#fi
-
 
 echo "(Part 4) Success!"
 echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
@@ -177,4 +162,17 @@ set -e
 read -rsp $'>> Press enter to start example_safety_agent <<\n'
 python example_safety_agent.py
 
-echo "SUCCESS !!!!!!!!!"
+tput setaf 1
+echo "███████╗██╗   ██╗ ██████╗ ██████╗███████╗███████╗███████╗    ██╗"
+tput setaf 2
+echo "██╔════╝██║   ██║██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝    ██║"
+tput setaf 3
+echo "███████╗██║   ██║██║     ██║     █████╗  ███████╗███████╗    ██║"
+tput setaf 4
+echo "╚════██║██║   ██║██║     ██║     ██╔══╝  ╚════██║╚════██║    ╚═╝"
+tput setaf 5
+echo "███████║╚██████╔╝╚██████╗╚██████╗███████╗███████║███████║    ██╗"
+tput setaf 6
+echo "╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝    ╚═╝"
+tput sgr0
+
