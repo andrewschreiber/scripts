@@ -171,4 +171,11 @@ echo "  ╚════██║ ██║   ██║ ██║      ██║ 
 echo "  ███████║ ╚██████╔╝ ╚██████╗ ╚██████╗ ███████╗ ███████║ ███████║    ██╗"
 echo "  ╚══════╝  ╚═════╝   ╚═════╝  ╚═════╝ ╚══════╝ ╚══════╝ ╚══════╝    ╚═╝"
 tput sgr0
-echo; echo; echo "Open AI Gym setup complete."
+echo; echo; 
+echo "Open AI Gym setup complete."
+echo "You can uninstall with 'pip uninstall gym'"
+echo
+echo "For next steps, go to the Getting Started with OpenAI Gym Safety blog post"
+echo
+echo "www.medium.com/blogpost"
+echo
