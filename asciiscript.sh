@@ -44,7 +44,8 @@ echo "                  ▓▌                                                  
 tput sgr0
 echo; echo "Setting up Gym & dependencies. Takes 5-20 minutes, based on internet speed."
 
-if command_exists xcode-select ; then 
+if ! command_exists xcode-select ; then 
+# Use Homebrew's CLI approach https://raw.githubusercontent.com/Homebrew/install/master/install
   echo "Installing Xcode Command Line Tools..."
   clt_placeholder="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
   /usr/bin/touch "$clt_placeholder"
@@ -52,7 +53,8 @@ if command_exists xcode-select ; then
   echo "Installing $clt_label"
   /usr/sbin/softwareupdate -i "$clt_label"
   /bin/rm -f "$clt_placeholder"
-  /usr/bin/xcode-select --switch /Library/Developer/CommandLineTools
+  echo "Setting active developer path to standard /Library/Developer/CommandLineTools ..."
+  sudo /usr/bin/xcode-select --switch /Library/Developer/CommandLineTools
 else
   echo "Command line tools exist"
 fi
