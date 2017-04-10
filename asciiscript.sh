@@ -126,29 +126,13 @@ echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
 echo "Part 4 | Configure Dependencies"
 echo "*********************************"; sleep 1; echo
 
-if ! command_exists xcode-select ; then 
-# Use Homebrew's CLI approach https://raw.githubusercontent.com/Homebrew/install/master/install
-  echo "Installing Xcode Command Line Tools..."
-  clt_placeholder="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
-  sudo /usr/bin/touch "$clt_placeholder"
-  softwareupdate -l | grep -B 1 -E "Command Line (Developer|Tools)" | awk -F"*" '/^ +\\*/ {print $2}' | sed 's/^ *//' | tail -n1
-  echo "Installing $clt_label"
-  /usr/sbin/softwareupdate -i "$clt_label"
-  /bin/rm -f "$clt_placeholder"
-else
-  echo "Command line tools exist"
-fi
+echo "Install Xcode Command Line Tools if needed..."
+read -rsp $'>> Press enter to continue <<\n'
 
-active_path=$(xcode-select -p)
-
-if [[ "$active_path" != "/Library/Developer/CommandLineTools" ]] ; then
-    echo "Current xcode-select path is $active_path"
-    echo "Need to set active developer path to standard /Library/Developer/CommandLineTools"
-    echo "System password:"
-    sudo /usr/bin/xcode-select --switch /Library/Developer/CommandLineTools
-fi
-
-echo "Succeeded at configuring Xcode Command Line Tools"
+set +e
+xcode-select --install
+set -e
+echo "
 
 safe_brew_install cmake swig boost boost-python sdl2 wget
 
