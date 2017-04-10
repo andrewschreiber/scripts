@@ -93,12 +93,12 @@ else
     # Install conda
     echo "Installing Miniconda..."
     if command_exists wget ; then 
-        true
+        echo "Wget already installed"
     else
         brew install wget
     fi
     if command_exists swig ; then
-        true
+        echo "Swig already installed"
     else
         brew install swig
     fi
