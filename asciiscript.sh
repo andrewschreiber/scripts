@@ -92,7 +92,9 @@ if command_exists conda ; then
 else
     # Install conda
     echo "Installing Miniconda..."
-    if [command_exists wget != 0] ; then 
+    if command_exists wget ; then 
+        true
+    else
         brew install wget
     fi
     set +e
@@ -113,8 +115,10 @@ echo "Part 4 | Install OpenAI Gym"
 echo "(Tip) The pachi-py step takes a few minutes."
 echo "*********************************"; sleep 1; echo
 
-if [command_exists cmake !=0] ; then 
-    brew install cmake
+if command_exists cmake ; then
+   true
+else 
+   brew install cmake
 fi
 
 pip install 'gym[all]'
