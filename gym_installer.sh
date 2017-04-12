@@ -40,31 +40,17 @@ echo "      ▀▀█▓▓█▀▀    ▓▌▀████▀    ▀▀█▓
 echo "                  ▓▌                                                     "
 echo "                  ▓▌                                                     "
 tput sgr0
-echo; echo "Setting up Gym & dependencies. Takes 5-20 minutes, based on internet speed."
+echo; echo "Setting up Gym & dependencies. Takes 5-15 minutes, based on internet speed."
 
 read -rsp $'>> Press enter to begin <<\n'
 
-echo;echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "(Part 1) OpenAIGym folder"
-echo "*********************************"; echo
-
-sleep 1
-dir="OpenAIGym"
-if [ "${PWD##*/}" != $dir ]; then 
-     if [ ! -d $dir ]; then
-          mkdir $dir
-     fi
-     cd "$dir"
-fi
-
-echo "(Part 1) Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "(Part 2) Setup Homebrew"
+echo "[PART 1] Setup Homebrew & system dependencies"
 echo "*********************************"; sleep 1; echo
 echo "Reaching out to Homebrew..."
 
 if command_exists brew ; then
-    echo "Brew already installed. Moving forward."
+    echo "[CHECK] Homebrew already installed."
 else
     echo "Installing Homebrew. Enter your system password at prompt, then press enter."
     tput setaf 4
@@ -74,21 +60,37 @@ else
     echo "Downloading Homebrew..."
     # Install Homebrew
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo; echo "[CHECK] Successfully installed Homebrew."    
 fi
 
-echo; echo "(Part 2) Success!"
+echo; echo "Install Xcode Command Line Tools if needed (disregard error)..."
+read -rsp $'>> Press enter to continue <<\n'
+
+set +e
+xcode-select --install
+set -e
+if command_exists xcode-select ; then 
+    echo; echo "[CHECK] Xcode Command Line Tools successfully configured."
+else
+    echo "Failed to install Xcode Command Line tools. Exiting"
+    exit 0
+fi
+
+safe_brew_install cmake swig boost boost-python sdl2 wget
+
+echo; echo "[PART 1] Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "(Part 3) Setup Python 3 / Conda"
+echo "[PART 2] Setup Python 3.6 / Conda"
 tput setaf 4
-echo "(Tip) Say 'yes' to each prompt that asks"
-echo "(Tip) Scroll down the license by holding enter"
+echo "[TIP] Say 'yes' to each prompt that asks"
+echo "[TIP] Scroll down the license by holding enter"
 tput sgr0
 echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
 
 source ~/.bash_profile
 if command_exists conda ; then
-    
+    echo "[CHECK] Conda already installed."
     echo "Updating conda..."
     conda update conda
     case "$(python --version 2>&1)" in
@@ -128,40 +130,29 @@ else
     read -rsp $'>> Press enter to continue <<\n'
 fi
 
-echo; echo "(Part 3) Success!"
+echo; echo "[PART 2] Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "Part 4 | Configure Dependencies"
-echo "*********************************"; sleep 1; echo
-
-echo "Install Xcode Command Line Tools if needed (disregard error)..."
-read -rsp $'>> Press enter to continue <<\n'
-
-set +e
-xcode-select --install
-set -e
-if command_exists xcode-select ; then 
-    echo; echo "[CHECK] Xcode Command Line Tools successfully configured."
-else
-    echo "Failed to install Xcode Command Line tools. Exiting"
-    exit 0
-fi
-
-safe_brew_install cmake swig boost boost-python sdl2 wget
-
-echo; echo "(Part 4) Success!"
-echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "(Part 5) Install OpenAI Gym"
+echo "[PART 3] Install OpenAI Gym"
 tput setaf 4
-echo "(Tip) The pachi-py step takes awhile."
+echo "[TIP] The pachi-py step takes awhile."
 tput sgr0
 echo "*********************************"; sleep 1; echo
 
 pip install 'gym[all]'
 
-echo; echo "(Part 5) Success!"
+echo; echo "[PART 3] Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
-echo "(Part 6) Download and run an example agent"
+echo "[PART 4] Download and run an example agent"
 echo "*********************************"; sleep 1; echo
+
+sleep 1
+dir="OpenAIGym"
+if [ "${PWD##*/}" != $dir ]; then 
+     if [ ! -d $dir ]; then
+          mkdir $dir
+     fi
+     cd "$dir"
+fi
 
 wget -c -nc https://raw.githubusercontent.com/andrewschreiber/scripts/master/example_agent.py
 
@@ -171,6 +162,7 @@ wget -c -nc https://raw.githubusercontent.com/andrewschreiber/scripts/master/exa
 python example_agent.py
 
 echo "[CHECK] Gym is working."
+echo "[PART 4] Success!"
 
 echo; echo
 tput setaf 54
@@ -183,10 +175,11 @@ echo "  ╚══════╝  ╚═════╝   ╚═════╝ 
 tput sgr0
 echo; echo; 
 echo "Open AI Gym setup complete."
-echo "Use 'import gym' to use Gym in python"
+echo "Use 'import gym' to use Gym in python files"
+echo "Run 'source activate p36' on command line to enter python 3.6 environment'
 echo "You can uninstall with 'pip uninstall gym'"
 echo
-echo "For next steps, go to the Getting Started with OpenAI Gym Safety blog post"
+echo "For next steps, check out the Gym docs"
 echo
-echo "www.medium.com/blogpost"
+echo "https://gym.openai.com/docs"
 echo
