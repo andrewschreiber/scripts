@@ -125,7 +125,7 @@ else
     echo "Refreshed .bash_profile"
     source ~/.bash_profile
     tput setaf 4
-    echo "(Tip) For Conda to work, restart Terminal after the script completes."
+    echo "[TIP] For Conda to work, restart Terminal after the script completes."
     tput sgr0
     read -rsp $'>> Press enter to continue <<\n'
 fi
@@ -146,7 +146,7 @@ echo "[PART 4] Download and run an example agent"
 echo "*********************************"; sleep 1; echo
 
 sleep 1
-dir="OpenAIGym"
+dir="GymAgents"
 if [ "${PWD##*/}" != $dir ]; then 
      if [ ! -d $dir ]; then
           mkdir $dir
