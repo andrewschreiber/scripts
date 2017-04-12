@@ -5,4 +5,4 @@ bash <(curl -Ls https://raw.githubusercontent.com/andrewschreiber/scripts/master
 
 ```
 
-[![Demo Video](https://img.youtube.com/vi/7PO27i2lEOs/0.jpg)](http://www.youtube.com/watch?v=7PO27i2lEOs)
+[![Demo Video](https://img.youtube.com/vi/7yi0P8NQK98/0.jpg)](https://youtu.be/7yi0P8NQK98)
