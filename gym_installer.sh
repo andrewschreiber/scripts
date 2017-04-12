@@ -176,7 +176,7 @@ tput sgr0
 echo; echo; 
 echo "Open AI Gym setup complete."
 echo "Use 'import gym' to use Gym in python files"
-echo "Run 'source activate p36' on command line to enter python 3.6 environment'
+echo "Run 'source activate p36' on command line to enter python 3.6 environment"
 echo "You can uninstall with 'pip uninstall gym'"
 echo
 echo "For next steps, check out the Gym docs"
