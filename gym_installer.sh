@@ -63,7 +63,8 @@ else
     echo; echo "[CHECK] Successfully installed Homebrew."    
 fi
 
-echo; echo "Install Xcode Command Line Tools if needed (disregard error)..."
+echo; echo "Install Xcode Command Line Tools..."
+echo "If you have already installed Xcode CLT, you will see an error. That is fine."
 read -rsp $'>> Press enter to continue <<\n'
 
 set +e
