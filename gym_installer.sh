@@ -63,6 +63,7 @@ else
     echo; echo "[CHECK] Successfully installed Homebrew."    
 fi
 
+touch ~/.bash_profile
 echo; echo "Install Xcode Command Line Tools..."
 echo "If you have already installed Xcode CLT, you will see an error. That is fine."
 read -rsp $'>> Press enter to continue <<\n'
@@ -88,6 +89,7 @@ echo "[TIP] Scroll down the license by holding enter"
 tput rmul
 echo "*********************************"; echo
 read -rsp $'>> Press enter to continue <<\n'
+
 
 source ~/.bash_profile
 if command_exists conda ; then
