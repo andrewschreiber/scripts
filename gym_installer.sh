@@ -50,7 +50,9 @@ echo "*********************************"; sleep 1; echo
 echo "Reaching out to Homebrew..."
 
 if command_exists brew ; then
-    echo "[CHECK] Homebrew already installed."
+    echo "[CHECK] Homebrew already installed. Updating Homebrew."
+    brew update
+    echo "[CHECK] Homebrew successfully updated."
 else
     echo "Installing Homebrew. Enter your system password at prompt, then press enter."
     tput smul
