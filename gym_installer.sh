@@ -66,6 +66,15 @@ else
 fi
 
 touch ~/.bash_profile
+if [ ! -f ~/.bash_profile ]; then
+    echo "Failed to find or create ~/.bash_profile. Exiting."
+    echo "Run this command to create a .bash_profile, then retry the script:"
+    tput smul
+    echo; echo "sudo touch ~/.bash_profile"
+    tput rmul
+    exit 0
+fi
+
 echo; echo "Install Xcode Command Line Tools..."
 echo "If you have already installed Xcode CLT, you will see an error. That is fine."
 read -rsp $'>> Press enter to continue <<\n'
