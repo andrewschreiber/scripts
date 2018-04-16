@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+MACOSX_DEPLOYMENT_TARGET=10.11
 
 command_exists () {
     type "$1" &> /dev/null ;
@@ -150,6 +151,7 @@ tput smul
 echo "[TIP] The pachi-py step takes awhile."
 tput rmul
 echo "*********************************"; sleep 1; echo
+
 
 pip install 'gym[all]'
 
