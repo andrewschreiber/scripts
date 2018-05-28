@@ -152,7 +152,8 @@ echo "[TIP] The pachi-py step takes awhile."
 tput rmul
 echo "*********************************"; sleep 1; echo
 
-
+pip install pygame
+pip install matplotlib
 pip install 'gym[all]'
 
 echo; echo "[PART 3] Success!"
@@ -192,11 +193,11 @@ echo
 echo "OpenAI Gym setup complete."
 echo "Use 'import gym' to use Gym in python files"
 echo
-echo "To rerun the example agent, enter these commands in terminal:"
+echo "To play Pong, enter these commands in terminal:"
 echo "    source ~/.bash_profile"
 echo "    source activate p35"
 echo "    cd ${dir}"
-echo "    python example_agent.py"
+echo "    python play.py"
 echo
 echo "For next steps, check out the Gym docs"
 echo "https://gym.openai.com/docs"
