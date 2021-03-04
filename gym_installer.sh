@@ -90,7 +90,7 @@ else
     exit 0
 fi
 
-safe_brew_install cmake swig boost boost-python sdl2 wget
+safe_brew_install cmake swig boost boost-python3 sdl2 wget
 
 echo; echo "[PART 1] Success!"
 echo; echo "**** OPENAI GYM SETUP SCRIPT ****"
